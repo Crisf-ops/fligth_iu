@@ -11,6 +11,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { VueloComponent } from './components/vuelo/vuelo/vuelo.component';
 import { ClienteComponent } from './components/cliente/cliente/cliente.component';
 import { NaveComponent } from './components/nave/nave.component';
+import { MainComponent } from './components/main/main.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,6 +23,7 @@ export function createTranslateLoader(http: HttpClient) {
     VueloComponent,
     ClienteComponent,
     NaveComponent,
+    MainComponent,
   
   ],
   imports: [
