@@ -1,0 +1,22 @@
+{
+    "Create user": "Crear usuario",
+    "Name" : "Nombre",
+    "Search by identification": "Buscar por identificacion",
+    "Change":"Cambiar",
+    "Document number": "Número de documento",
+    "Age": "Edad",
+    "Phone": "Telefono",
+    "Email":"Correo",
+    "Save":"Guardar",
+    "Options":"Opciones",
+    "Remove":"Eliminar",
+    "Edit": "Editar",
+    "Update": "Actualizar",
+    "Capacity":"Capacidad",
+    "Date":"Fecha",
+    "Time":"Hora",
+    "See flight": "Ver vuelos",
+    "Flights": "Vuelos",
+    "Client":"Clientes"
+
+}

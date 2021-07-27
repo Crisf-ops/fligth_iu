@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="contenedor">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="cliente">
+                <i class="fas fa-plane-departure"></i>
+                Aerolinea
+            </a>
+        </div>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="cliente">
+                {{'Client' | translate}}
+            </a>
+        </div>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="vuelos">
+                {{'Flights' | translate}}
+            </a>
+        </div>
+    </div>
+    <div class="passenger-head">
+        <h6>
+          {{'Change' | translate}}
+          <select #langSelect (change)="changeLang(langSelect.value)">
+            <option *ngFor="let lang of langs" [value]="lang">
+              {{lang}}
+            </option>
+          </select>
+        </h6>
+      </div>
+</nav>

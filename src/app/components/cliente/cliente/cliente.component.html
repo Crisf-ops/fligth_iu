@@ -1,0 +1,142 @@
+<div class="card">
+  <div class="card-header">
+    <h1 class="title">{{'Create user' | translate}}</h1>
+  </div>
+  <div class="card-body">
+    <div class="usuario-crear container">
+
+      <form [formGroup]="clientesForm" (ngSubmit)="guardar()">
+
+        <div class="for-group">
+          <label>{{'Name' | translate}}</label>
+          <input type="text" formControlName="nombre" class="form-control">
+        </div>
+
+        <div class="for-group">
+          <label>{{'Document number' | translate}}</label>
+          <input id="documentos" value="" type="number" formControlName="documento" class="form-control">
+        </div>
+
+        <div class="for-group">
+          <label>{{'Age' | translate}}</label>
+          <input type="number" formControlName="edad" class="form-control">
+        </div>
+
+        <div class="for-group">
+          <label>{{'Phone' | translate}}</label>
+          <input type="tel" formControlName="telefono" class="form-control">
+        </div>
+
+        <div class="for-group">
+          <label>{{'Email' | translate}}</label>
+          <input type="email" formControlName="email" class="form-control">
+        </div>
+
+        <div class="from-btn btn-save">
+          <button type="submit" class="btn btn-primary" [disabled]="clientesForm.invalid"><i
+              class="far fa-save"></i>{{'Save' | translate}}</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+  <div class="buscar card">
+    <div class="card-header">
+      <div class="btn-search">
+        <input type="text" placeholder="{{'Search by identification' | translate}}" name="documento"
+          class="form-control text" #documento (keyup)="buscar(documento.value)">
+      </div>
+
+      <div *ngIf="isAlert" dismiss-on-timeout="2000" #alert class="alert alert-warning" role="alert">
+        {{alertMsg}}
+      </div>
+      <div *ngIf="isAlertSuccess" dismiss-on-timeout="2000" class="alert alert-success" role="alert">
+        {{alertMsgSuccess}}
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table caption-top" [formGroup]="buscarForm">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>{{'Name' | translate}}</th>
+            <th>{{'Document number' | translate}}</th>
+            <th>{{'Age' | translate}}</th>
+            <th>{{'Phone' | translate}}</th>
+            <th>{{'Email' | translate}}</th>
+            <th>{{'Options' | translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cliente">
+            <th>{{item.clienteId}}</th>
+            <th>{{item.nombre}}</th>
+            <th>{{item.documento}}</th>
+            <th>{{item.edad}}</th>
+            <th>{{item.telefono}}</th>
+            <th>{{item.email}}</th>
+            <td>
+              <div class="btn-opciones">
+                <button type="button" class="btn btn-success" (click)="editar(item)" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"><i class="fas fa-user-edit"></i>{{'Edit' | translate}}</button>
+                <button type="button" class="btn btn-danger" (click)="eliminar(item)"><i
+                    class="fas fa-user-minus"></i>{{'Remove' | translate}}</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  *ngIf="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{'Update' | translate}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form action="" [formGroup]="actualizarForm" (ngSubmit)="actualizar()">
+          <div class="for-group">
+            <label>{{'Name' | translate}}</label>
+            <input type="text" formControlName="nombre" class="form-control">
+          </div>
+
+          <div class="for-group">
+            <label>{{'Document number' | translate}}</label>
+            <input id="documentos" value="" type="number" formControlName="documento" class="form-control" readonly>
+          </div>
+
+          <div class="for-group">
+            <label>{{'Age' | translate}}</label>
+            <input type="number" formControlName="edad" class="form-control">
+          </div>
+
+          <div class="for-group">
+            <label>{{'Phone' | translate}}</label>
+            <input type="tel" formControlName="telefono" class="form-control">
+          </div>
+
+          <div class="for-group">
+            <label>{{'Email' | translate}}</label>
+            <input type="email" formControlName="email" class="form-control">
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success" [disabled]="clientesForm.disabled">{{'Update' |
+              translate}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="">
+    <div class="card container">
+        <div class="card-header">
+            {{'Flights' | translate}}
+        </div>
+        <div class="card-boby">
+            <table class="table caption-top" [formGroup]="vuelosForm">
+                <thead>
+                    <th>Referencia</th>
+                    <th>{{'Capacity' | translate}}</th>
+                    <th>{{'Date' | translate}}</th>
+                    <th>{{'Time' | translate}}</th>
+                    <th>{{'Options' | translate}}</th>
+                </thead>
+                <tbody *ngFor="let item of vuelo">
+                    <th>{{item.ref}}</th>
+                    <th>{{item.capacidad}}</th>
+                    <th>{{item.fecha}}</th>
+                    <th>{{item.hora}}</th>
+                    <th>
+                        <div class="ver">
+                            <button type="button" class="btn btn-ver btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"><i class="far fa-eye"></i>{{'See flight' |
+                                translate}}</button>
+                        </div>
+                    </th>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    id="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="card container">
+                    <div class="card-header">
+                        {{'Flights' | translate}}
+                    </div>
+                    <div class="card-boby">
+                        <table class="table caption-top">
+                            <thead>
+                                <th>{{'Client' | translate}}</th>
+                            </thead>
+                            <tbody *ngFor="let item of vuelo">
+                                <th>{{item.clienteid}}</th>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
